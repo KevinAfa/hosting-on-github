@@ -9,6 +9,51 @@
     <body style="background-color: #181817;">S</body>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Crypto Hub</title>
+
+     <!-- ========== HOVER ANIMATION FOR ALL CARDS ========== -->
+    <style>
+        /* Base transition for every card on the page */
+        .card {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover effect – works on every card (transparent, colored, with/without image) */
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 255, 206, 0.25) !important;
+            z-index: 10;
+        }
+
+        /* Extra glow for the dark transparent cards (price alerts) */
+        .card.border-info-subtle:hover {
+            border-color: #00ffce !important;
+            box-shadow: 0 0 20px rgba(0, 255, 206, 0.5) !important;
+        }
+
+        /* For the bright cyan cards (influencer, price analysis, etc.) */
+        .card[style*="background-color: #00ffce"]:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Optional: subtle inner glow on hover */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 206, 0.15), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.35s;
+            pointer-events: none;
+        }
+        .card:hover::before {
+            opacity: 1;
+        }
+    </style>
+    <!-- =================================================== -->
+
 </head>
 <body>
     
